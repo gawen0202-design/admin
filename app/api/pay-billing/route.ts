@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       
       // 통보 및 재시도 설정
       feedbackurl: feedbackurl,               // 결제완료 후 결과 리턴받을 URL
-      checkretry: "y",                        // feedbackurl 응답 실패 시 10회 재시도 설정
+      checkretry: "n",                        // feedbackurl 응답 실패 시 10회 재시도 설정
       
       // 결제 옵션
       cardinst: priceNum >= 50000 ? cardinst : "00", // 5만원 미만은 강제 일시불 처리
@@ -77,4 +77,5 @@ export async function POST(request: Request) {
       message: "서버 내부 통신 오류가 발생했습니다." 
     }, { status: 500 });
   }
+
 }
